@@ -1,13 +1,18 @@
-import express from 'express';
-const PORT = 8080;
+import 'reflect-metadata';
 
-const main = () => {
+import express from 'express';
+import loaders from './loaders';
+import config from './config';
+
+const main = async () => {
 	const app = express();
 
-	app.listen(PORT, () => {
+	await loaders({ expressApp: app });
+
+	app.listen(config.PORT, () => {
 		console.log(`
             ################################################
-            🛡️  Server listening on port: ${PORT} 🛡️
+            🛡️  Server listening on port: ${config.PORT} 🛡️
             ################################################
         `);
 	});

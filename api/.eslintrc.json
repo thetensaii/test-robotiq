@@ -17,6 +17,6 @@
 		"quotes": ["error", "single", { "avoidEscape": true }],
 		"semi": ["error", "always"],
 		"no-extra-semi": ["error"],
-		"prefer-const": ["warning"]
+		"prefer-const": ["warn"]
 	}
 }

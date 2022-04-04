@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Select component tests should renders Select 1`] = `
+<div>
+  <select
+    id="test"
+    name="test"
+  >
+    <option
+      value="1"
+    >
+      Test 1
+    </option>
+    <option
+      value="2"
+    >
+      Test 2
+    </option>
+    <option
+      value="3"
+    >
+      Test 3
+    </option>
+  </select>
+</div>
+`;

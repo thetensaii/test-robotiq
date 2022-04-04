@@ -9,6 +9,7 @@ export const apiGetRequest = async (
 };
 export const apiPostRequest = async (
 	endpoint: string,
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	data: any,
 	requestConfig: AxiosRequestConfig = {}
 ): Promise<AxiosResponse> => {

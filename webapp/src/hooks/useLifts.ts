@@ -3,8 +3,9 @@ import { useEffect, useState } from 'react';
 import { LiftService } from 'services/LiftService';
 import { LiftProps } from 'utils/props/LiftProps';
 
-export const useLifts = () => {
+export const useLifts = (): [LiftProps[], string | null] => {
 	const [lifts, setLifts] = useState<LiftProps[]>([]);
+	const [error, setError] = useState<string | null>(null);
 
 	useEffect(() => {
 		(async () => {
@@ -13,13 +14,17 @@ export const useLifts = () => {
 				setLifts(apiLifts);
 			} catch (error) {
 				if (axios.isAxiosError(error) && error.response) {
-					console.error(error.response.data);
+					if (typeof error.response.data === 'string') {
+						setError(error.response.data);
+					} else {
+						setError('An error as occured');
+					}
 				} else if (error instanceof Error) {
-					console.error('Une erreur a été rencontrée');
+					setError('An error as occured');
 				}
 			}
 		})();
 	}, [setLifts]);
 
-	return [lifts];
+	return [lifts, error];
 };
